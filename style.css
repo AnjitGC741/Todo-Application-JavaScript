@@ -6,6 +6,7 @@
 body{
     font-family:'Inter', sans-serif;
     line-height: 1.5;
+    padding:1rem;
 }
 html{
     font-size: 10px;
