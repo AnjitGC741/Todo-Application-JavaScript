@@ -18,7 +18,9 @@ function deleteItem(x)
 function displayData(){
   var storedData = localStorage.getItem("tasks");
   if (storedData !== null) {
-    document.getElementById("emptyMessage").innerHTML = "";
+  document.getElementById("emptyBox").style.visibility = "hidden";
+  document.getElementById("emptyBox").style.height = "0";
+  document.getElementById("emptyBox").style.padding = "0";
     var dataArray = storedData.split(",");
     var list = document.getElementById("myList");
     for (var i = 0; i < dataArray.length; i++) {
@@ -26,7 +28,8 @@ function displayData(){
       listItem.classList.add("task-lists"); 
       listItem.textContent = dataArray[i];
       var button = document.createElement("button");
-      button.textContent = "Delete";
+      button.innerHTML = '<ion-icon class="trash-icon" name="trash-outline"></ion-icon>';
+      button.classList.add("delete-btn"); 
       button.setAttribute("onclick", "deleteItem(" + i + ")");
       listItem.appendChild(button);
       list.appendChild(listItem);
@@ -34,7 +37,9 @@ function displayData(){
 }
 else
 {
-  document.getElementById("emptyMessage").innerHTML = "No any task";
+  document.getElementById("emptyBox").style.height = "auto";
+  document.getElementById("emptyBox").style.padding = "0 0 2rem 0";
+  document.getElementById("emptyBox").style.visibility = "visible";
 }
 };
 // to delete all the value
@@ -46,12 +51,12 @@ function removeAll()
 }
 // to store the data
 function storeValue() {
-  var inputValue = document.getElementById("myInput").value;
+  var inputValue = document.getElementById("inputTask").value;
   if (localStorage.getItem("tasks") === null) {
     localStorage.setItem("tasks", inputValue);
     document.getElementById("myList").innerHTML = "";
     displayData();
-    document.getElementById("myInput").value = "";
+    document.getElementById("inputTask").value = "";
   } else {
     var tasksValue = localStorage.getItem("tasks");
     tasksValue = tasksValue.split(",");
@@ -59,7 +64,13 @@ function storeValue() {
     localStorage.setItem("tasks", tasksValue.join(","));
     document.getElementById("myList").innerHTML = "";
     displayData();
-    document.getElementById("myInput").value = "";
+    document.getElementById("inputTask").value = "";
   }
 }
-
+// to get date
+var today = new Date();
+var date = today.getDate();
+var month = today.toLocaleString('default', { month: 'long' });
+var year = today.getFullYear();
+var formattedDate = date + " " + month + " " + year;
+document.getElementById("todayDate").innerHTML = formattedDate;

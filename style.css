@@ -5,9 +5,114 @@
 }
 body{
     font-family:'Inter', sans-serif;
+    line-height: 1.5;
+}
+html{
+    font-size: 10px;
+}
+.todo-box{
+    margin: 100px auto 0;
+    max-width: 400px;
+    border: 1px solid rgb(208, 208, 208);
+    overflow: hidden;
+}
+.img-date-section{
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+.for-img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+.for-img img{
+    width: 100%;
+    height: 100%;
+}
+.overlay{
+    background: rgba(21, 0, 255, 0.318);
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    z-index: 2;
+    padding: 2rem;
+}
+.overlay h1{
+    font-size: 3.2rem;
+    color: white;
+    margin-top: 9rem;
+}
+.overlay p {
+    font-size: 2rem;
+    color: white;
+    margin-left: 0.5rem;
+}
+.todo-list-section{
+    padding: 1rem;
+    /* min-height: 10rem; */
+}
+.todo-list-section ul li:last-child {
+    border: none;
 }
 .task-lists{
-    background-color: aqua;
+    list-style: none;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(205, 205, 205);
+    font-size: 1.8rem;
+    padding: 0.5rem 0;
+}
+.delete-btn{
+    background-color: rgb(231, 5, 5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 0.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.delete-btn:hover{
+    background-color:rgb(231, 55, 55) ;
+}
+.add-task-section{
+    width: 100%;
+    display: flex;
+    gap: 1px;
+}
+.inputTask{
+    font-size: 1.8rem;
+    padding: 1rem;
+    width: 75%;
+}
+.inputTask:focus{
+    outline: none;
+}
+.add-btn{
+    background-color: green;
+    color: white;
+    font-size: 1.6rem;
+    border: none;
+    padding: 5px 10px;
+    width: 25%;
+}
+.emptyBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    visibility: hidden;
+    padding: 0 0 2rem 0;
+}
+.emptyBox img{
+    height: 40px;
+    width: 40px;
+}
+.emptyBox p {
+    font-size: 1.8rem;
 }
